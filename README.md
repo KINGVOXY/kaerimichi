@@ -37,3 +37,7 @@ composer create-project --prefer-dist "laravel/laravel=X.X.*" .
 ```
 
 ganbatta
+
+### gitからcloneしたとき
+vendor系のファイルがgitignoreで消えてるから、appコンテナの中で `# composer install`を実行
+
