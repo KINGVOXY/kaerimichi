@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -10,6 +11,9 @@ class UserController extends Controller
         return View('user.signup');//viewを返す
     }
 
+    /**
+     * 頼む...動いてくれ...!
+     */
     public function postSignup(Request $request){
         // バリデーション
         $this->validate($request,[
@@ -18,17 +22,17 @@ class UserController extends Controller
             'password' => 'required|min:4'
         ]);
     
-        // DBインサート
+        // DBに入れます
         $user = new User([
             'id' => $request->input('id'),
             'name' => $request->input('name'),
             'password' => bcrypt($request->input('password'))
         ]);
         
-        // 保存
+        // 保存するぜやっほー
         $user->save();
         
-        // リダイレクト
+        // リダイレクトして完了じゃいッ...!
         return redirect()->route('user.profile');
     }
 
