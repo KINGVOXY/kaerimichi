@@ -58,3 +58,9 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+/**
+ * 20200313
+ * SCSSをCSSコンパイル
+ */
+SassCompiler::run("scss/", "css/");

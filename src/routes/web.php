@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'user'], function() {
+ 
+  Route::get('/signup',[
+  'uses' => 'UserController@getSignup',
+  'as' => 'user.signup'
+  ]);
+ 
+  Route::post('/signup',[
+  'uses' => 'UserController@postSignup',
+  'as' => 'user.signup'
+  ]);
+ 
+  Route::get('/profile',[
+  'uses' => 'UserController@getProfile',
+  'as' => 'user.profile'
+  ]);
+});
